@@ -1,0 +1,12 @@
+{
+  "name": "whatsappboti",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Lairtin",
+  "license": "ISC",
+  "description": "Um boti para o whatsapp"
+}
