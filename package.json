@@ -10,7 +10,8 @@
   "license": "ISC",
   "description": "Um boti para o whatsapp",
   "dependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
     "@wppconnect-team/wppconnect": "^1.30.3",
-    "jimp": "^0.22.12"
+    "fluent-ffmpeg": "^2.1.3"
   }
 }
