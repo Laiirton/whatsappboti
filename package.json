@@ -8,5 +8,9 @@
   "keywords": [],
   "author": "Lairtin",
   "license": "ISC",
-  "description": "Um boti para o whatsapp"
+  "description": "Um boti para o whatsapp",
+  "dependencies": {
+    "@wppconnect-team/wppconnect": "^1.30.3",
+    "jimp": "^0.22.12"
+  }
 }
