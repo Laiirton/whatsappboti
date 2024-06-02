@@ -4,7 +4,10 @@ import fs from "fs";
 import path from "path";
 import ffmpeg from "fluent-ffmpeg";
 import ffmpegPath from "@ffmpeg-installer/ffmpeg";
-import { toSticker, StickerTypes } from "wa-leal-stickers";
+import { Sticker, createSticker, StickerTypes } from 'wa-sticker-formatter' // ES6
+
+
+
 import {
   GoogleGenerativeAI,
   HarmCategory,
@@ -79,18 +82,30 @@ async function start(client) {
       if (message.quotedMsg && message.quotedMsg.type === "image") {
         try {
           const stickerData = await client.decryptFile(message.quotedMsg);
-          const base64Sticker = stickerData.toString("base64");
-          await client.sendImageAsSticker(
-            message.from,
-            `data:image/png;base64,${base64Sticker}`
-          );
+          const sticker = new Sticker(stickerData, {
+            pack: 'My Pack', // O nome do pacote
+            author: 'Me', // O nome do autor
+            type: StickerTypes.FULL, // O tipo de figurinha
+            categories: ['🤩', '🎉'], // A categoria da figurinha
+            id: '12345', // O ID da figurinha
+            quality: 50, // A qualidade do arquivo de saída
+            background: '#000000' // A cor de fundo da figurinha (somente para figurinhas full)
+          });
+    
+          const stickerBuffer = await sticker.build();
+          const stickerBase64 = stickerBuffer.toString('base64');
+    
+          await client.sendImageAsSticker(message.from, `data:image/webp;base64,${stickerBase64}`);
+    
           console.log("Sticker sent successfully");
         } catch (error) {
           console.error("Error processing sticker:", error);
         }
       }
     }
-
+    
+    
+    
     if (message.caption === "!fig" && message.type === "image") {
       try {
         const stickerData = await client.decryptFile(message);

@@ -16,6 +16,6 @@
     "@wppconnect-team/wppconnect": "^1.30.3",
     "fluent-ffmpeg": "^2.1.3",
     "sharp": "^0.33.4",
-    "wa-leal-stickers": "^1.0.8"
+    "wa-sticker-formatter": "^4.4.4"
   }
 }
